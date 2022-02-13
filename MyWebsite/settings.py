@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['192.168.1.12', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'finance.apps.FinanceConfig',
+    'media.apps.MediaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
