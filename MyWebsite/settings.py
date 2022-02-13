@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['192.168.1.12', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'media.apps.MediaConfig',
+    'company.apps.CompanyConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
