@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ one_music.name }}</title>
+</head>
+<body>
+    <audio controls>
+        <source src="{{ music_object.self_object.url }}" type="audio/mpeg">
+        <embed src="{{ music_object.self_object.url }}">
+    </audio>
+</body>
+</html>

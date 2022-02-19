@@ -14,14 +14,11 @@ class SupportWebsite(models.TextChoices):
 
 
 class Poster(models.Model):
-    name = models.CharField(max_length=20, verbose_name="海报名称")
+    name = models.CharField(max_length=20, verbose_name="海报名称", null=True, blank=True)
     source_site = models.CharField(max_length=5, verbose_name="来源网站", choices=SupportWebsite.choices)
     self_source = models.URLField(verbose_name="海报来源")
     self_object = models.ImageField(verbose_name="海报文件", upload_to="posters/%Y/%m/%d/")
     description = models.TextField(verbose_name="海报描述", null=True, blank=True)
-
-    def __str__(self):
-        return self.name
 
 
 class Singer(models.Model):

@@ -5,8 +5,12 @@
 # @Author    :Amundsen Severus Rubeus Bjaaland
 
 
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.decorators.http import require_GET
+
+from .. import forms
 
 
+@require_GET
 def index(request):
-    return HttpResponse("Hello!")
+    return render(request, "media/index.html", {"MusicSelectForm": forms.home.MusicSelectForm()})

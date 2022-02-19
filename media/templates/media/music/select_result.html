@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ select_keyword }}</title>
+    </head>
+    <body>
+        {% if music_select_result %}
+        <table id="select-result-table">
+            <thead>
+                <tr class="table-header">
+                    <th>歌曲名称</th>
+                    <th>所属专辑</th>
+                    <th>演唱者</th>
+                    <th>来源网站</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for one_music in music_select_result %}
+                    <tr class="table-content">
+                        <th>
+                            <a href="{% url 'media:music-detail' %}?master_id={{ one_music.master_id }}&sub_id={{ one_music.sub_id }}">{{ one_music.name }}</a>
+                        </th>
+                        <th>{{ one_music.album }}</th>
+                        <th>{{ one_music.singer_list.name_list }}</th>
+                        <th>{{ one_music.source_site }}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p id="not-found-p-tag">抱歉，未找到您指定的歌曲。</p>
+        {% endif %}
+    </body>
+</html>
