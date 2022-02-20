@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="zh-hans">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ one_music.name }}</title>
-</head>
-<body>
-    <audio controls>
+{% extends 'media/base.html' %}
+
+{% block title %}{{ music_object.name }}{% endblock title %}
+
+{% block content %}
+<div id="music-info-area">
+    <div id="music-poster"><img src="{{ poster_url }}" height="200" width="200"></div>
+    <div id="music-singer-info">{{ singers_name }}</div>
+    <div id="music-source-info">
+        <div id="music-source-web-area"><p id="music-source-web">该歌曲来源于{{ music_source_site }}</p></div>
+        <div id="music-source-area">
+            <p id="music-source">您可以从此<a href="{{ music_object.self_source }}">跳转</a>到该歌曲在源网站的URL。</p>
+        </div>
+        <div id="music-download-area">
+            <p id="music-download">您可以从此<a href="{% url 'media:music-download' %}?id={{ music_object.id }}">下载</a>这首歌曲。</p>
+        </div>
+    </div>
+</div>
+<div id="music-object-area">
+    <audio autoplay="autoplay" controls loop>
         <source src="{{ music_object.self_object.url }}" type="audio/mpeg">
-        <embed src="{{ music_object.self_object.url }}">
+        <source src="{{ music_object.self_source }}" type="audio/mpeg">
     </audio>
-</body>
-</html>
+</div>
+<div id="music-lyrics-area"></div>
+{% endblock content %}
