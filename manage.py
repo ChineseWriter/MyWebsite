@@ -19,4 +19,6 @@ def main():
 
 
 if __name__ == '__main__':
+    if os.getcwd() not in sys.path:
+        sys.path.append(os.getcwd())
     main()
