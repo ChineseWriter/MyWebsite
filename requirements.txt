@@ -1,0 +1,10 @@
+django
+pillow
+
+requests
+bs4
+opencv-python
+eyed3
+prettytable
+js2py
+pycryptodome
