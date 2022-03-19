@@ -19,7 +19,9 @@
                 {% for one_music in music_select_result %}
                     <tr class="table-content">
                         <th>
-                            <a href="{% url 'media:music-detail' %}?master_id={{ one_music.master_id }}&sub_id={{ one_music.sub_id }}">{{ one_music.name }}</a>
+                            <a href="{% url 'media:music-detail' %}?master_id={{ one_music.master_id }}
+                            &sub_id={{ one_music.sub_id }}&source_site={{ one_music.source_site }}">
+	                            {{ one_music.name }}</a>
                         </th>
                         <th>{{ one_music.album }}</th>
                         <th>{{ one_music.singer_list.name_list }}</th>
