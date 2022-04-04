@@ -10,7 +10,7 @@ from django.urls import path
 from . import views
 
 
-app_name = 'media'
+app_name = "media"
 urlpatterns = [
     path('', views.home.index, name='index'),
     path('music/select', views.music.select_music, name='music-select'),

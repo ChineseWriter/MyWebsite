@@ -15,20 +15,18 @@ Including another URLconf
 """
 
 
-import os
-
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import index
+from .views import index, jump_to_tool
 
 urlpatterns = [
     path('', index, name='website-index'),
+    path('tool/preview/<str:tool_name>', jump_to_tool, name='web-tool-preview'),
     path('media/', include('media.urls')),
     path('company/', include('company.urls')),
     path('admin/', admin.site.urls),
+    *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
