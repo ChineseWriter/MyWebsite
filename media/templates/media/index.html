@@ -269,7 +269,6 @@
 							Semantics, a large language ocean.</p>
 					</div>
 				</div>
-			
 			</div>
 		</div>
 	</div>
@@ -316,11 +315,8 @@
 										Jobs</cite></p>
 							</blockquote>
 						</li>
-					
-					
 					</ul>
 				</div>
-			
 			</div>
 		</div>
 	</div>
@@ -353,24 +349,19 @@
 		<script src="{% static 'media/js/jquery.stellar.min.js' %}"></script>
 		<script src="{% static 'media/js/jquery.flexslider-min.js' %}"></script>
 		<script src="{% static 'media/js/main.js' %}"></script>
-<!--		<script src="{% static 'media/js/jquery-1.11.0.min.js' %}" type="text/javascript"></script>-->
 		<script type="text/javascript">
 			function searchToggle(obj, evt){
 				var container = $(obj).closest('.search-wrapper');
-		
 				if(!container.hasClass('active')){
 					  container.addClass('active');
 					  evt.preventDefault();
 				}
 				else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
 					  container.removeClass('active');
-					  // clear input
 					  container.find('.search-input').val('');
-					  // clear and hide result container when we press close
 					  container.find('.result-container').fadeOut(100, function(){$(this).empty();});
 				}
 			}
-		
 			function submitFn(obj, evt){
 				value = $(obj).find('.search-input').val().trim();
 				_html = "";
@@ -384,13 +375,11 @@
 						{"music_name": value, "csrfmiddlewaretoken": "{{ csrf_token }}"},
 						function(result){document.write(result)}
 					)
-					
 				}
 				$(obj).find('.result-container').html('<span>' + _html + '</span>');
 				$(obj).find('.result-container').fadeIn(100);
 				evt.preventDefault();
 			}
-		
 		</script>
 	</div>
 </div>
